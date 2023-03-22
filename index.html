@@ -32,12 +32,30 @@
 			</select>
 		</li>
 	</ul>
-	<h2>技能</h2>
-	<ol>
-		<li>火球术：对单个敌人造成50点伤害</li>
-		<li>冰冻术：冻结单个敌人，使其无法行动1回合</li>
-		<li>闪电链：对多个敌人造成30点伤害</li>
-	</ol>
+	<h2>技能设置区</h2>
+	<label for="skill_num">技能个数：</label>
+	<input type="number" id="skill_num" name="skill_num" min="0" max="3" value="0"><br><br>
+	<div id="skill_input"></div>
+	<script>
+		document.getElementById("skill_num").addEventListener("change", function() {
+			var skill_num = document.getElementById("skill_num").value;
+			var skill_input = document.getElementById("skill_input");
+			skill_input.innerHTML = "";
+			for (var i = 1; i <= skill_num; i++) {
+				skill_input.innerHTML += "<h3>技能" + i + "</h3><label for='skill_name_" + i + "'>技能名称：</label><input type='text' id='skill_name_" + i + "' name='skill_name_" + i + "'><br><label for='skill_description_" + i + "'>技能描述：</label><input type='text' id='skill_description_" + i + "' name='skill_description_" + i + "'><br><label for='skill_type_" + i + "'>技能类型：</label><select id='skill_type_" + i + "' name='skill_type_" + i + "'><option value='passive'>被动</option><option value='manual'>手动开启</option><option value='auto'>自动开启</option></select><br><div id='skill_parameter_" + i + "'></div><br>";
+				document.getElementById("skill_type_" + i).addEventListener("change", function() {
+					var skill_type = this.value;
+					var skill_parameter = document.getElementById("skill_parameter_" + this.id.slice(-1));
+					skill_parameter.innerHTML = "";
+					if (skill_type == "passive") {
+						skill_parameter.innerHTML += "<label for='skill_duration_" + this.id.slice(-1) + "'>持续时间：</label><input type='text' id='skill_duration_" + this.id.slice(-1) + "' name='skill_duration_" + this.id.slice(-1) + "'><br>";
+					} else if (skill_type == "manual" || skill_type == "auto") {
+						skill_parameter.innerHTML += "<label for='skill_initial_sp_" + this.id.slice(-1) + "'>初始技力：</label><input type='text' id='skill_initial_sp_" + this.id.slice(-1) + "' name='skill_initial_sp_" + this.id.slice(-1) + "'><br><label for='skill_sp_cost_" + this.id.slice(-1) + "'>技力需求：</label><input type='text' id='skill_sp_cost_" + this.id.slice(-1) + "' name='skill_sp_cost_" + this.id.slice(-1) + "'><br><label for='skill_duration_" + this.id.slice(-1) + "'>持续时间：</label><input type='text' id='skill_duration_" + this.id.slice(-1) + "' name='skill_duration_" + this.id.slice(-1) + "'><br><label for='skill_sp_recovery_" + this.id.slice(-1) + "'>技力恢复方式：</label><select id='skill_sp_recovery_" + this.id.slice(-1) + "' name='skill_sp_recovery_" + this.id.slice(-1) + "'><option value='hit'>受击恢复</option><option value='auto'>自动恢复</option><option value='attack'>攻击恢复</option></select><br>";
+					}
+				});
+			}
+		});
+	</script>
 	<h2>攻击范围</h2>
 	<div style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(7, 1fr);">
 		<div style="background-color: white; grid-column: 2 / 4; grid-row: 2 / 4;"></div>
@@ -51,9 +69,18 @@
 		<div style="border: 1px solid black; grid-column: 6 / 8; grid-row: 5 / 7;"></div>
 	</div>
 	<h2>天赋</h2>
-	<ul>
-		<li>火焰抗性：减少50%火焰伤害</li>
-		<li>闪电速度：增加20速度</li>
-	</ul>
+	<label for="talent_num">天赋个数：</label>
+	<input type="number" id="talent_num" name="talent_num" min="0" max="10" value="2"><br><br>
+	<div id="talent_input"></div>
+	<script>
+		document.getElementById("talent_num").addEventListener("change", function() {
+			var talent_num = document.getElementById("talent_num").value;
+			var talent_input = document.getElementById("talent_input");
+			talent_input.innerHTML = "";
+			for (var i = 1; i <= talent_num; i++) {
+				talent_input.innerHTML += "<h3>天赋" + i + "</h3><label for='talent_name_" + i + "'>天赋名称：</label><input type='text' id='talent_name_" + i + "' name='talent_name_" + i + "'><br><label for='talent_content_" + i + "'>天赋内容：</label><input type='text' id='talent_content_" + i + "' name='talent_content_" + i + "'><br><br>";
+			}
+		});
+	</script>
 </body>
 </html>
