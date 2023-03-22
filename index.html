@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>明日方舟角色DIY</title>
+</head>
+<body>
+	<h1>明日方舟角色DIY</h1>
+	<h2>基础属性</h2>
+	<ul>
+		<li>生命值：<input type="text" name="health" value="100"></li>
+		<li>攻击力：<input type="text" name="attack" value="50"></li>
+		<li>防御力：<input type="text" name="defense" value="20"></li>
+		<li>法术抗性：<input type="text" name="magic_resistance" value=""></li>
+		<li>阻挡数：<input type="text" name="block" value="1"></li>
+		<li>部署费用：<input type="text" name="cost" value="10"></li>
+		<li>再部署时间：
+			<select name="respawn_time">
+				<option value="very_fast">非常快</option>
+				<option value="fast">快</option>
+				<option value="medium">中等</option>
+				<option value="slow">慢</option>
+				<option value="very_slow">非常慢</option>
+			</select>
+		</li>
+		<li>攻击速度：
+			<select name="attack_speed">
+				<option value="very_fast">非常快</option>
+				<option value="fast">快</option>
+				<option value="medium">中等</option>
+				<option value="slow">慢</option>
+				<option value="very_slow">非常慢</option>
+			</select>
+		</li>
+	</ul>
+	<h2>技能</h2>
+	<ol>
+		<li>火球术：对单个敌人造成50点伤害</li>
+		<li>冰冻术：冻结单个敌人，使其无法行动1回合</li>
+		<li>闪电链：对多个敌人造成30点伤害</li>
+	</ol>
+	<h2>攻击范围</h2>
+	<div style="display: grid; grid-template-columns: repeat(9, 1fr); grid-template-rows: repeat(7, 1fr);">
+		<div style="background-color: white; grid-column: 2 / 4; grid-row: 2 / 4;"></div>
+		<div style="border: 1px solid black; grid-column: 1 / 3; grid-row: 1 / 3;"></div>
+		<div style="border: 1px solid black; grid-column: 3 / 5; grid-row: 1 / 3;"></div>
+		<div style="border: 1px solid black; grid-column: 4 / 6; grid-row: 3 / 5;"></div>
+		<div style="border: 1px solid black; grid-column: 3 / 5; grid-row: 5 / 7;"></div>
+		<div style="border: 1px solid black; grid-column: 1 / 3; grid-row: 5 / 7;"></div>
+		<div style="border: 1px solid black; grid-column: 6 / 8; grid-row: 1 / 3;"></div>
+		<div style="border: 1px solid black; grid-column: 7 / 9; grid-row: 3 / 5;"></div>
+		<div style="border: 1px solid black; grid-column: 6 / 8; grid-row: 5 / 7;"></div>
+	</div>
+	<h2>天赋</h2>
+	<ul>
+		<li>火焰抗性：减少50%火焰伤害</li>
+		<li>闪电速度：增加20速度</li>
+	</ul>
+</body>
+</html>
