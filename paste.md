@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <script src="https://d3js.org/d3.v7.min.js"></script>
 
@@ -49,33 +50,9 @@
 		<div id="attack_range" style="flex: 1;">
 			<h2>攻击范围</h2>
 			<script src="js/atk_range.js"></script>
+			</div>
 			<h2>分支</h2>
-        <label for="branch">选择分支：</label>
-        <select id="branch" name="branch" onchange="showImage()">
-        <option value="">请选择</option>
-        <script>
-        // create an array of branch names
-        var branches = ['情报官', '链术师', '召唤师', '削弱者', '凝滞师', '战术家', '驭械术师', '中坚术师', '陷阱师', '秘术师', '术战者', '投掷手', '钩索师', '重剑手', '剑豪', '决战者', '群愈师', '咒愈师', '轰击术师', '散射手', '神射手', '重射手', '攻城手', '冲锋手', '解放者', '要塞', '尖兵', '速射手', '伏击客', '推击手', '强攻手', '工匠', '无畏者', '不屈者', '收割者', '疗养师', '医师', '怪杰', '哨戒铁卫', '链愈师', '行医', '行商', '护佑者', '斗士', '阵法术师', '吟游者', '处决者', '执旗手', '武者', '炮手', '扩散术师', '驭法铁卫', '领主', '守护者', '教官', '傀儡师', '铁卫'];
-        // loop through the array and create an option for each branch
-        for (var i = 0; i < branches.length; i++) {
-            document.write("<option value='pic/职业分支图标_" + branches[i] + ".png'>" + branches[i] + "</option>");
-        }
-        </script>
-        </select>
-        <style>
-            img {
-              background-color: grey;
-            }
-          </style>
-        <img id="branch_image" src="" alt="" width="100" height="100">
-        <script>
-        function showImage() {
-        var image = document.getElementById("branch_image");
-        var select = document.getElementById("branch");
-        image.src = select.value;
-        }
-        </script>
-        </div>
+			
 		<div style="flex: 1;">
 			<h2>技能</h2>
 			<label for="skill_num">技能个数：</label>
@@ -94,3 +71,4 @@
 	</div>
 </body>
 </html>
+```
