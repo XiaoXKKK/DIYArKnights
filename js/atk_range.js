@@ -9,33 +9,47 @@ for (let i = 0; i < row; i++) {
   }
 }
 
-const svg = d3.select("body")
+const svg = d3.select("#attack_range")
   .append("svg")
   .attr("width", col*size)
   .attr("height", row*size);
+  const rect = svg.selectAll("rect");
+  const rectUpdate = rect.data(data);
 
-
-svg.selectAll("rect")
-  .data(data)
-  .enter()
+rectUpdate.enter()
   .append("rect")
-  .attr("x", d => d.x)
-  .attr("y", d => d.y)
   .attr("width", size)
   .attr("height", size)
+  .attr("x", function(d) { return d.x; })
+  .attr("y", function(d) { return d.y; })
+  .attr("fill", function(d) { return d.color === 2 ? "lightblue": (d.color === 0 ? "gray" : "white"); })
   .attr("stroke", "black")
-  .attr("fill", d => (d.color === 2) ? "lightblue" : (d.color === 1) ? "white" : "gray")
-  .filter(d => d.color !== 2)
-  .on("click", function(d, i) {
-    const rect = d3.select(this);
-    if (d => d.color === 1) {
-      rect.attr("fill", "gray");
-      d.color = 0;
-    } else {
-      rect.attr("fill", "white");
-      d.color = 1;
-    }
-  })
+  .attr("stroke-width", "1px")
+  .datum(function(d) { return d; })  // 将每个方格元素与相应的数据点绑定
+  .filter(function(d) { return d.color !== 2; })
+  .on("click", function() {
+    const d = d3.select(this).datum();  // 使用 'this' 获取当前元素，然后使用 '.datum()' 方法获取绑定的数据
+    console.log(d)
+    d.color = d.color === 1 ? 0 : 1;
+    d3.select(this).attr("fill", d.color === 0 ? "gray" : "white");
+  });
 
-var attack_range = document.getElementById("attack_range");
-attack_range.innerHTML += svg.node().outerHTML;
+svg.selectAll("rect")
+  .attr("stroke", "black")
+  .attr("stroke-width", "1px");
+
+function getGridColors() {
+  const gridColors = svg.selectAll("rect")
+                        .nodes()
+                        .map(function(node) { return +d3.select(node).datum().color; });
+
+  return gridColors;
+}
+
+function setGridColors(colors) {
+  svg.selectAll("rect")
+    .each(function(d, i) {
+      d.color = colors[i];
+      d3.select(this).attr("fill", d.color === 2 ? "lightblue": (d.color === 0 ? "gray" : "white"));
+    });
+}
