@@ -12,6 +12,7 @@ function saveData() {
             formData[name] = value;
         }
     }
+    formData["atk_range"]=getGridColors()
     const formDataString = JSON.stringify(formData);
     const blob = new Blob([formDataString], { type: "application/json" });
     const url = URL.createObjectURL(blob);
@@ -36,6 +37,7 @@ function saveData() {
           element.value = value;
         }
       }
+        setGridColors(formData["atk_range"])
     };
     reader.readAsText(file);
   }
