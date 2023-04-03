@@ -1,0 +1,87 @@
+/* 设置全局字体和背景颜色 */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5;
+  }
+  
+  /* 设置标题样式 */
+  h1, h2, h3 {
+    font-weight: bold;
+    color: #333;
+  }
+  
+  /* 设置链接样式 */
+  a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* 设置按钮样式 */
+  button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0069d9;
+  }
+  
+  /* 设置表格样式 */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  th {
+    background-color: #f2f2f2;
+  }
+  
+  /* 设置表单样式 */
+  input[type="text"], textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+  
+  input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #0069d9;
+  }
+  
+  /* 设置响应式布局 */
+  @media screen and (max-width: 768px) {
+    /* 在小屏幕上隐藏侧边栏 */
+    .sidebar {
+      display: none;
+    }
+  
+    /* 将主内容区域宽度设置为100% */
+    .main {
+      width: 100%;
+    }
+  }

@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-<script src="https://d3js.org/d3.v7.min.js"></script>
 
 
 <html>
 <head>
 	<title>明日方舟角色DIY</title>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="js/data.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 <body>
-	<h1>明日方舟角色DIY</h1>
+    <a href="#" onclick="saveData()">保存数据</a>
+    <input type="file" onchange="loadData(this.files[0])">
+    <!-- <a href="#" onclick="loadData()">加载数据</a> -->
+    <h1>明日方舟角色DIY</h1>
 	<div style="display: flex; flex-direction: row;">
 		<div style="flex: 1;">
 			<h2>基础属性</h2>
@@ -70,9 +76,9 @@
         <img id="branch_image" src="" alt="" width="100" height="100">
         <script>
         function showImage() {
-        var image = document.getElementById("branch_image");
-        var select = document.getElementById("branch");
-        image.src = select.value;
+            var image = document.getElementById("branch_image");
+            var select = document.getElementById("branch");
+            image.src = select.value;
         }
         </script>
         </div>
